@@ -4,7 +4,7 @@ import { ISettingRegistry } from '@jupyterlab/settingregistry';
 import { PLUGIN_ID, SlideType, Transition } from './constants';
 import { Cell, Slide, Subslide, Fragment } from './slideType';
 import Reveal from 'reveal.js';
-import '../node_modules/reveal.js/dist/reveal.css';
+import 'reveal.js/dist/reveal.css';
 import '@svgdotjs/svg.js';
 
 // avoid implicit any error
@@ -25,7 +25,7 @@ const plugin = (
 
   let panel: NotebookPanel;
   let windowedPanel: HTMLElement;
-  let windowingMode: 'defer' | 'full' | 'none';
+  let windowingMode: 'defer' | 'full' | 'none' | 'contentVisibility';
   let csSettings: any = {};
 
   let slideToggle = false;
@@ -52,7 +52,7 @@ const plugin = (
       csSettings = loadSettings(settingRes);
       // update settings
       settingRes.changed.connect(() => {
-        console.log('custom-slideshow settings updated:');
+        console.log('dive-custom-slideshow settings updated:');
         csSettings = loadSettings(settingRes);
         console.log(csSettings);
       });

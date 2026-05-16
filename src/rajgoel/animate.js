@@ -11,7 +11,7 @@
 
 'use strict';
 
-import SVG from '../../node_modules/@svgdotjs/svg.js/src/svg.js';
+import { SVG } from '@svgdotjs/svg.js';
 
 window.RevealAnimate = window.RevealAnimate || {
   id: 'RevealAnimate',

@@ -3,7 +3,7 @@ requires = ["hatchling>=1.5.0", "jupyterlab>=4.0.0,<5", "hatch-nodejs-version>=0
 build-backend = "hatchling.build"
 
 [project]
-name = "custom_slideshow"
+name = "dive-custom-slideshow"
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.9"
@@ -21,6 +21,7 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
 ]
 dependencies = [
 ]
@@ -33,24 +34,23 @@ source = "nodejs"
 fields = ["description", "authors", "urls", "keywords"]
 
 [tool.hatch.build.targets.sdist]
-artifacts = ["custom_slideshow/labextension"]
+artifacts = ["dive_custom_slideshow/labextension"]
 exclude = [".github", "binder"]
 
 [tool.hatch.build.targets.wheel.shared-data]
-"custom_slideshow/labextension" = "share/jupyter/labextensions/custom-slideshow"
-"install.json" = "share/jupyter/labextensions/custom-slideshow/install.json"
+"dive_custom_slideshow/labextension" = "share/jupyter/labextensions/dive_custom_slideshow"
+"install.json" = "share/jupyter/labextensions/dive_custom_slideshow/install.json"
 
 [tool.hatch.build.hooks.version]
-path = "custom_slideshow/_version.py"
+path = "dive_custom_slideshow/_version.py"
 
 [tool.hatch.build.hooks.jupyter-builder]
 dependencies = ["hatch-jupyter-builder>=0.5"]
 build-function = "hatch_jupyter_builder.npm_builder"
 ensured-targets = [
-    "custom_slideshow/labextension/static/style.js",
-    "custom_slideshow/labextension/package.json",
+    "dive_custom_slideshow/labextension/static/style.js",
+    "dive_custom_slideshow/labextension/package.json",
 ]
-skip-if-exists = ["custom_slideshow/labextension/static/style.js"]
 
 [tool.hatch.build.hooks.jupyter-builder.build-kwargs]
 build_cmd = "build:prod"
@@ -60,7 +60,7 @@ npm = ["jlpm"]
 build_cmd = "install:extension"
 npm = ["jlpm"]
 source_dir = "src"
-build_dir = "custom_slideshow/labextension"
+build_dir = "dive_custom_slideshow/labextension"
 
 [tool.jupyter-releaser.options]
 version_cmd = "hatch version"

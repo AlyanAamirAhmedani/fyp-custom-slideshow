@@ -1,4 +1,4 @@
-const PLUGIN_ID = 'custom-slideshow';
+const PLUGIN_ID = 'dive-custom-slideshow';
 
 enum SlideType {
   SLIDE = 'slide',

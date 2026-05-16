@@ -1,7 +1,7 @@
 {
   "jupyter.lab.shortcuts": [],
-  "title": "dive-custom-slideshow",
-  "description": "dive-custom-slideshow settings.",
+  "title": "custom-slideshow",
+  "description": "custom-slideshow settings.",
   "type": "object",
   "properties": {
     "dummy": {

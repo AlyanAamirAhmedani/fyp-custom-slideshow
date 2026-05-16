@@ -17,7 +17,7 @@ test('should emit an activation console message', async ({ page }) => {
 
   expect(
     logs.filter(
-      s => s === 'JupyterLab extension custom-slideshow is activated!'
+      s => s === 'JupyterLab extension dive-custom-slideshow is activated!'
     )
   ).toHaveLength(1);
 });

@@ -6,9 +6,9 @@ author_name: ltshum
 has_binder: false
 has_settings: true
 kind: frontend
-labextension_name: custom-slideshow
+labextension_name: dive-custom-slideshow
 project_short_description: JupyterLab extension for animated slideshow.
 python_name: custom_slideshow
-repository: https://github.com/ltshum/fyp-custom-slideshow
+repository: https://github.com/ltshum/fyp-dive-custom-slideshow
 test: true
 

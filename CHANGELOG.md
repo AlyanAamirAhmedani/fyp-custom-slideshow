@@ -4,6 +4,10 @@
 
 <!-- <END NEW CHANGELOG ENTRY> -->
 
+## 0.1.3 - 2026/5/14
+
+- Compile with jupyterlab 4.5.x to make it work with xeus kernel that requires 4.5.x.
+
 ## 0.1.2 - 2026/4/22
 
 ### Added

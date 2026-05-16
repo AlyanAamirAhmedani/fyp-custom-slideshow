@@ -1,4 +1,4 @@
-# custom_slideshow
+# dive_custom_slideshow
 
 [![Github Actions Status](https://github.com/ltshum/fyp-custom-slideshow/workflows/Build/badge.svg)](https://github.com/ltshum/fyp-custom-slideshow/actions/workflows/build.yml)
 
@@ -16,7 +16,7 @@ Demo: https://ltshum.github.io/jupyterlite/lab/index.html
 To install the extension, execute:
 
 ```bash
-pip install custom_slideshow
+pip install dive_custom_slideshow
 ```
 
 ## Uninstall
@@ -24,7 +24,7 @@ pip install custom_slideshow
 To remove the extension, execute:
 
 ```bash
-pip uninstall custom_slideshow
+pip uninstall dive_custom_slideshow
 ```
 
 ## Usage
@@ -81,7 +81,7 @@ The `jlpm` command is JupyterLab's pinned version of
 
 ```bash
 # Clone the repo to your local environment
-# Change directory to the custom_slideshow directory
+# Change directory to the dive_custom_slideshow directory
 # Install package in development mode
 pip install -e "."
 # Link your development version of the extension with JupyterLab
@@ -110,7 +110,7 @@ jupyter lab build --minimize=False
 ### Development uninstall
 
 ```bash
-pip uninstall custom_slideshow
+pip uninstall dive_custom_slideshow
 ```
 
 In development mode, you will also need to remove the symlink created by `jupyter labextension develop`
