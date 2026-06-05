@@ -247,6 +247,27 @@ const plugin = (
             transition: csSettings.default_transition || 'slide'
           });
           await reveal.initialize().then(() => {
+            // Fix: reset scroll position to top on every slide change
+            const slidesContainer = revealContainer.querySelector('.slides');
+            if (slidesContainer) {
+              const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                  if (mutation.type === 'attributes') {
+                    const target = mutation.target as HTMLElement;
+                    if (target.classList && target.classList.contains('present')) {
+                      target.scrollTop = 0;
+                    }
+                  }
+                });
+              });
+              slidesContainer.querySelectorAll('section').forEach(function(section) {
+                observer.observe(section, {
+                  attributes: true,
+                  attributeFilter: ['class']
+                });
+              });
+            }
+
             if (reveal !== null) {
               if (mode === 'first') {
                 reveal.slide(0);
