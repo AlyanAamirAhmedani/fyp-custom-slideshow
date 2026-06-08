@@ -342,13 +342,40 @@ const plugin = (
     }
   };
 
-  const addToRevealSlide = (slide: any, item: any) => {
+const addToRevealSlide = (slide: any, item: any) => {
     if (
       item.cell.model.type === 'code' &&
       item.cell.model.metadata.slideshow?.hide_code
     ) {
       item.cell.node.classList.add('hide-code');
     }
+
+    // Fix: handle data-animate in markdown cells directly
+    // bypasses JupyterLab's HTML sanitizer which strips data-animate
+    if (item.cell.model.type === 'markdown') {
+      const src = item.cell.model.sharedModel.getSource();
+      if (src.includes('data-animate')) {
+        const animWrapper = document.createElement('div');
+        animWrapper.innerHTML = src;
+        const animDiv = animWrapper.querySelector('[data-animate]');
+        if (animDiv) {
+          const container = document.createElement('div');
+          container.appendChild(animDiv);
+          item.children?.forEach((child: any) => {
+            addToRevealSlide(container, child);
+          });
+          slide.appendChild(container);
+          item.fragments?.forEach((fragment: any) => {
+            const fragContainer = document.createElement('div');
+            fragContainer.classList.add('fragment');
+            addToRevealSlide(fragContainer, fragment);
+            slide.appendChild(fragContainer);
+          });
+          return;
+        }
+      }
+    }
+
     if (item.transition) {
       let transition = item.transition;
       if (item.transitionOut) {
@@ -362,7 +389,6 @@ const plugin = (
     slide.style.transitionDuration = `${item.transitionDuration}s`;
     const container = document.createElement('div');
     container.appendChild(item.cell.node);
-
     item.children?.forEach((child: any) => {
       addToRevealSlide(container, child);
     });
