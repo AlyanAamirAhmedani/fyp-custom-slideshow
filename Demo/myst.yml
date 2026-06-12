@@ -1,0 +1,7 @@
+version: 1
+project:
+  title: dive-custom-slideshow Animation Demo
+  toc:
+    - file: animation_demo.ipynb
+site:
+  template: book-theme
